@@ -1,55 +1,29 @@
-INSERT INTO  employee(id, first_name, last_name, role_id, manager_id) 
-VALUES  (001, Harry, Potter, Salesperson, Dumbledore),
-        (002, Hermione, Granger, Accountant, Hagrid),
-        (003, Ron, Weasley, Lawyer, Hagrid),
-        (004, Albus, Dumbledore, CEO, NULL),
-        (005, Rubeus, Hagrid, Manager, Dumbledore),
-        (006, Severus, Snape, Salesperson, Dumbledore),
-        (007, Draco, Malfoy, Salesperson, Snape),
-        (008, Luna, Lovegood, Accountant, Hagrid),
-        (009, Neville, Longbottom, Lawyer, Hagrid),
-        (010, Ginny, Weasley, Engineer, Dumbledore),
-        (011, Fred, Weasley, Sales Manager, Dumbledore),
-        (012, George, Weasley, Salesperson, Dumbledore),
-        (013, Percy, Weasley, Accountant, Dumbledore),
-        (014, Bill, Weasley, Lawyer, Dumbledore),
-        (015, Charlie, Weasley, Salesperson, Dumbledore),
-        (016, Arthur, Weasley, Sales Manager, Dumbledore),
-        (017, Molly, Weasley, Salesperson, Dumbledore),
-        (018, Fleur, Delacour, Accountant, Dumbledore),
-        (019, Viktor, Krum, Lawyer, Dumbledore),
-        (020, Cedric, Diggory, Salesperson, Dumbledore),
-        (021, Cho, Chang, Engineer, Dumbledore),
-        (022, Oliver, Wood, Salesperson, Dumbledore),
-        (023, Angelina, Johnson, Accountant, Dumbledore),
-        (024, Katie, Bell, Lawyer, Dumbledore),
-        (025, Alicia, Spinnet, Salesperson, Dumbledore),
-        (026, Lee, Jordan, Salesperson, Dumbledore),
-        (027, Marcus, Flint, Salesperson, Dumbledore),
-        (028, Gregory, Goyle, Accountant, Dumbledore),
-        (029, Vincent, Crabbe, Lawyer, Dumbledore),
-        (030, Pansy, Parkinson, Salesperson, Dumbledore),
-        (031, Padma, Patil, Salesperson, Dumbledore),
-        (032, Parvati, Patil, Salesperson, Dumbledore),
-        (033, Lavender, Brown, Accountant, Dumbledore),
-        (034, Seamus, Finnigan, Lawyer, Dumbledore),
-        (035, Dean, Thomas, Salesperson, Dumbledore),
-        (036, Hannah, Abbott, Salesperson, Dumbledore),
-        (037, Ernie, Macmillan, Salesperson, Dumbledore),
-        (038, Justin, Finch-Fletchley, Accountant, Dumbledore),
+INSERT INTO  employee (id, first_name, last_name, role_id) 
+VALUES  (001, "Harry", "Potter", 1001),
+        (002,"Hermione", "Granger", 1002),
+        (003, "Ron"," Weasley", 1003),
+        (004, "Albus","Dumbledore", 1004),
+        (005, "Rubeus", "Hagrid",1005),
+        (006, "Severus", "Snape",1006),
+        (007, "Draco", "Malfoy", 1007),
+        (008, "Luna", "Lovegood", 1003),
+        (009, "Neville", "Longbottom", 1001),
+        (010, "Ginny", "Weasley", 1004);
+        
+     
 
-    INSERT INTO department(id, name)
-    VALUES (501, Sales),
-            (502, Accounting),
-            (503, Legal),
-            (504, Management);
-            (505, Engineering);
+    INSERT INTO department (id, name)
+    VALUES  (501, "Sales"),
+            (502, "Accounting"),
+            (503, "Legal"),
+            (504, "Management"),
+            (505, "Engineering");
 
-    INSERT INTO role(id, title, salary, department_id)
-    VALUES (1001, Salesperson, 50000, 501),
-            (1002, Accountant, 60000, 502),
-            (1003, Lawyer, 70000, 503),
-            (1004, CEO, 100000, 504),
-            (1005, Manager, 80000, 504),
-            (1006, Sales Manager, 90000, 504),
-            (1007, Engineer, 70000, 505);
+    INSERT INTO role (id, title, salary, department_id)
+    VALUES  (1001, "Salesperson", 50000, 501),
+            (1002, "Accountant", 60000, 502),
+            (1003, "Lawyer", 70000, 503),
+            (1004, "CEO", 100000, 504),
+            (1005, "Manager", 80000, 504),
+            (1006, "Sales Manager", 90000, 504),
+            (1007, "Engineer", 70000, 505);

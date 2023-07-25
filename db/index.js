@@ -29,5 +29,9 @@ function init() {
     },
   ]);
 }
+.then((answers) => {
+    const options = new options(
+      answers.choice
+    );
 
 init();
