@@ -41,7 +41,15 @@ function userResponse(answers) {
 
   switch (userChoice) {
     case "ALL_DEPARTMENTS":
-      console.log("here is all depts");
+      connection.query(
+        "SELECT * FROM department",
+        (err,results,fields)=>{
+          console.log(results)
+          console.log(fields)
+          console.log(err)
+
+        }
+      )
 
       break;
 
