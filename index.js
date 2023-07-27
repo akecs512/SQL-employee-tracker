@@ -54,9 +54,27 @@ function userResponse(answers) {
       break;
 
     case "ALL_ROLES":
+      connection.query(
+        "SELECT * FROM roles",
+        (err,results,fields)=>{
+          console.log(results)
+          console.log(fields)
+          console.log(err)
+
+        }
+      )
       break;
 
     case "ALL_EMPLOYEES":
+      connection.query(
+        "SELECT * FROM employees",
+        (err,results,fields)=>{
+          console.log(results)
+          console.log(fields)
+          console.log(err)
+
+        }
+      )
       break;
     case "ADD_DEPARTMENTS":
       break;

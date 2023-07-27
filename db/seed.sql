@@ -1,4 +1,4 @@
-INSERT INTO  employee (id, first_name, last_name, role_id) 
+INSERT INTO  employees (id, first_name, last_name, role_id) 
 VALUES  (001, "Harry", "Potter", 1001),
         (002,"Hermione", "Granger", 1002),
         (003, "Ron"," Weasley", 1003),
@@ -19,7 +19,7 @@ VALUES  (001, "Harry", "Potter", 1001),
             (504, "Management"),
             (505, "Engineering");
 
-    INSERT INTO role (id, title, salary, department_id)
+    INSERT INTO roles (id, title, salary, department_id)
     VALUES  (1001, "Salesperson", 50000, 501),
             (1002, "Accountant", 60000, 502),
             (1003, "Lawyer", 70000, 503),
