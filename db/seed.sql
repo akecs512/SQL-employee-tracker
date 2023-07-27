@@ -12,7 +12,7 @@ VALUES  (001, "Harry", "Potter", 1001),
         
      
 
-    INSERT INTO department (id, name)
+    INSERT INTO departments (id, name)
     VALUES  (501, "Sales"),
             (502, "Accounting"),
             (503, "Legal"),
