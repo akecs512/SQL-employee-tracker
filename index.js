@@ -41,44 +41,52 @@ function userResponse(answers) {
 
   switch (userChoice) {
     case "ALL_DEPARTMENTS":
-      connection.query(
-        "SELECT * FROM departments",
-        (err,results,fields)=>{
-          console.log(results)
-          console.log(fields)
-          console.log(err)
-
-        }
-      )
+      connection.query("SELECT * FROM departments", (err, results, fields) => {
+        console.log(results);
+        console.log(fields);
+        console.log(err);
+      });
 
       break;
 
     case "ALL_ROLES":
-      connection.query(
-        "SELECT * FROM roles",
-        (err,results,fields)=>{
-          console.log(results)
-          console.log(fields)
-          console.log(err)
-
-        }
-      )
+      connection.query("SELECT * FROM roles", (err, results, fields) => {
+        console.log(results);
+        console.log(fields);
+        console.log(err);
+      });
       break;
 
     case "ALL_EMPLOYEES":
-      connection.query(
-        "SELECT * FROM employees",
-        (err,results,fields)=>{
-          console.log(results)
-          console.log(fields)
-          console.log(err)
-
-        }
-      )
+      connection.query("SELECT * FROM employees", (err, results, fields) => {
+        console.log(results);
+        console.log(fields);
+        console.log(err);
+      });
       break;
     case "ADD_DEPARTMENTS":
+      connection.query(
+        `INSERT INTO departments (id, name) VALUES ('')`,
+        (err, results, fields) => {}
+      );
       break;
     case "ADD_ROLES":
+      inquirer
+        .prompt([{ name: "name", type: "input", message: "name?" }])
+        .then((answers) => {
+          inquirer
+            .prompt([{ name: "salary", type: "input", message: "salary?" }])
+            .then((answers) => {
+              inquirer
+                .prompt([
+                  { name: "department", type: "input", message: "department?" },
+                ])
+                .then((answers) => {
+                  console.log(answers);
+                });
+            });
+        });
+
       break;
     case "UPDATE_EMPLOYEES":
       break;
