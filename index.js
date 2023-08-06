@@ -1,6 +1,5 @@
 const mysql = require(`mysql2`);
 const inquirer = require(`inquirer`);
-
 const connection = mysql.createConnection(
   {
     host: "127.0.0.1",
@@ -14,7 +13,7 @@ const connection = mysql.createConnection(
 function init() {
   inquirer.prompt(questions).then((answers) => {
     userResponse(answers);
-    connection.end();
+
   });
 }
 const questions = [
@@ -34,7 +33,7 @@ const questions = [
   },
 ];
 
-function userResponse(answers) {
+async function userResponse(answers) {
   const { userChoice } = answers;
   console.log(JSON.stringify(userChoice));
   console.log(answers);
@@ -46,15 +45,16 @@ function userResponse(answers) {
         console.log(fields);
         console.log(err);
       });
-
+      connection.end();
       break;
 
     case "ALL_ROLES":
       connection.query("SELECT * FROM roles", (err, results, fields) => {
         console.log(results);
         console.log(fields);
-        console.log(err);
+        console.log(err);git 
       });
+      connection.end();
       break;
 
     case "ALL_EMPLOYEES":
@@ -63,6 +63,7 @@ function userResponse(answers) {
         console.log(fields);
         console.log(err);
       });
+      connection.end();
       break;
     case "ADD_DEPARTMENTS":
       connection.query(
@@ -71,18 +72,38 @@ function userResponse(answers) {
       );
       break;
     case "ADD_ROLES":
+      let title;
+      let salary;
+      let departmentId;
+
       inquirer
-        .prompt([{ name: "name", type: "input", message: "name?" }])
+        .prompt([{ name: "name", type: "input", message: "title?" }])
         .then((answers) => {
+          title = answers.name;
           inquirer
             .prompt([{ name: "salary", type: "input", message: "salary?" }])
             .then((answers) => {
+              salary = answers.salary;
               inquirer
                 .prompt([
-                  { name: "department", type: "input", message: "department?" },
+                  {
+                    name: "department",
+                    type: "input",
+                    message: "department id?",
+                  },
                 ])
                 .then((answers) => {
-                  console.log(answers);
+                  departmentId = answers.department;
+                  console.log(title, salary, departmentId);
+                  connection.query(
+                    `INSERT INTO roles (title, salary, department_id) VALUES ('${title}', '${salary}', '${departmentId}')`,
+                    (err, results, fields) => {
+                      console.log(results);
+                      console.log(fields);
+                      console.log(err);
+                    }
+                  );
+                  connection.end();
                 });
             });
         });
