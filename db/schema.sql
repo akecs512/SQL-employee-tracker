@@ -16,10 +16,9 @@ CREATE TABLE roles (
     department_id INT REFERENCES department(id) on delete set null
 );
 
-CREATE TABLE employee (
+CREATE TABLE employees (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
     role_id INt references role(id) on delete set null
-      
 )

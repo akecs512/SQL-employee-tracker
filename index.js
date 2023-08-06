@@ -13,7 +13,6 @@ const connection = mysql.createConnection(
 function init() {
   inquirer.prompt(questions).then((answers) => {
     userResponse(answers);
-
   });
 }
 const questions = [
@@ -33,80 +32,48 @@ const questions = [
   },
 ];
 
+const errorOrDisplay = (err, list) => {
+  if (err) { console.error(err)} else { displayTable(list)}
+}
+const displayTable = (list) => {
+  console.table(list)
+}
 async function userResponse(answers) {
   const { userChoice } = answers;
-  console.log(JSON.stringify(userChoice));
-  console.log(answers);
-
   switch (userChoice) {
     case "ALL_DEPARTMENTS":
-      connection.query("SELECT * FROM departments", (err, results, fields) => {
-        console.log(results);
-        console.log(fields);
-        console.log(err);
+      connection.query("SELECT * FROM departments", (err, results, _fields) => {
+        errorOrDisplay(err, results)
       });
       connection.end();
       break;
 
     case "ALL_ROLES":
-      connection.query("SELECT * FROM roles", (err, results, fields) => {
-        console.log(results);
-        console.log(fields);
-        console.log(err);git 
+      connection.query("SELECT * FROM roles", (err, results, _fields) => {
+        errorOrDisplay(err, results)
       });
       connection.end();
       break;
 
     case "ALL_EMPLOYEES":
-      connection.query("SELECT * FROM employees", (err, results, fields) => {
-        console.log(results);
-        console.log(fields);
-        console.log(err);
+      connection.query("SELECT * FROM employees", (err, results, _fields) => {
+        errorOrDisplay(err, results)
       });
       connection.end();
       break;
     case "ADD_DEPARTMENTS":
       connection.query(
         `INSERT INTO departments (id, name) VALUES ('')`,
-        (err, results, fields) => {}
+        (err, results, _fields) => {}
       );
       break;
     case "ADD_ROLES":
-      let title;
-      let salary;
-      let departmentId;
-
-      inquirer
-        .prompt([{ name: "name", type: "input", message: "title?" }])
-        .then((answers) => {
-          title = answers.name;
-          inquirer
-            .prompt([{ name: "salary", type: "input", message: "salary?" }])
-            .then((answers) => {
-              salary = answers.salary;
-              inquirer
-                .prompt([
-                  {
-                    name: "department",
-                    type: "input",
-                    message: "department id?",
-                  },
-                ])
-                .then((answers) => {
-                  departmentId = answers.department;
-                  console.log(title, salary, departmentId);
-                  connection.query(
-                    `INSERT INTO roles (title, salary, department_id) VALUES ('${title}', '${salary}', '${departmentId}')`,
-                    (err, results, fields) => {
-                      console.log(results);
-                      console.log(fields);
-                      console.log(err);
-                    }
-                  );
-                  connection.end();
-                });
-            });
-        });
+      const roleQuestions = [
+        { name: "title", message: "title?", type: "input" },
+        { name: "salary", type: "input", message: "salary?" },
+        { name: "departmentId", type: "input", message: "department id?" },
+      ];
+      addRoleQuery(roleQuestions);
 
       break;
     case "UPDATE_EMPLOYEES":
@@ -116,5 +83,22 @@ async function userResponse(answers) {
       break;
   }
 }
+
+addRoleQuery = (questions) => {
+  inquirer.prompt(questions).then((answers) => {
+    const {title, salary, departmentId} = answers
+    connection.query(
+      `INSERT INTO roles (title, salary, department_id) VALUES ('${title}', '${salary}', '${departmentId}')`,
+      (err, _results, _fields) => {
+        if (err) {
+          console.error(error)
+        }
+      }
+    );
+    connection.end();
+  });
+};
+
+
 
 init();
