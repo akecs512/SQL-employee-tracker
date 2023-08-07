@@ -1,5 +1,7 @@
 const mysql = require(`mysql2`);
 const inquirer = require(`inquirer`);
+const { printTable } = require('console-table-printer');
+
 const connection = mysql.createConnection(
   {
     host: "127.0.0.1",
@@ -33,7 +35,7 @@ const questions = [
 ];
 
 const errorOrDisplay = (err, list) => {
-  if (err) { console.error(err)} else { displayTable(list)}
+  if (err) { console.error(err)} else { printTable(list)}
 }
 const displayTable = (list) => {
   console.table(list)
@@ -98,7 +100,5 @@ addRoleQuery = (questions) => {
     connection.end();
   });
 };
-
-
 
 init();
