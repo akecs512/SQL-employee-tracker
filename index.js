@@ -91,9 +91,11 @@ addRoleQuery = (questions) => {
     const {title, salary, departmentId} = answers
     connection.query(
       `INSERT INTO roles (title, salary, department_id) VALUES ('${title}', '${salary}', '${departmentId}')`,
-      (err, _results, _fields) => {
+      (err, results, _fields) => {
         if (err) {
           console.error(error)
+        } else {
+          console.log(`Inserted new role with id of: ${results.insertId}`)
         }
       }
     );
