@@ -71,7 +71,7 @@ async function userResponse(answers) {
       break;
     case "ADD_ROLES":
       const roleQuestions = [
-        { name: "title", message: "title?", type: "input" },
+        { name: "title", type: "input", message: "title?" },
         { name: "salary", type: "input", message: "salary?" },
         { name: "departmentId", type: "input", message: "department id?" },
       ];
