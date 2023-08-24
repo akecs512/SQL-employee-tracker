@@ -19,3 +19,5 @@ When update an employee role is chosen, the user is prompted to select an employ
 
 
 ## Screenshots
+<img width="673" alt="Screen Shot 2023-08-24 at 11 09 26 AM" src="https://github.com/akecs512/employee-tracker-challenge/assets/79340489/116d91d9-7d41-43b6-bb10-cd5beb20b1c9">
+<img width="646" alt="Screen Shot 2023-08-24 at 11 09 50 AM" src="https://github.com/akecs512/employee-tracker-challenge/assets/79340489/3008a1d3-5a48-4e31-863d-9557de9581f5">
