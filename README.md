@@ -18,8 +18,11 @@ When update an employee role is chosen, the user is prompted to select an employ
 ## Video Walkthrough
 
 
+https://github.com/akecs512/employee-tracker-challenge/assets/79340489/0b261888-c8b4-40b4-b27b-e3ba95893319
 
-Uploading EmployeeTrackerVideo.mov…
+
+
+
 
 
 
