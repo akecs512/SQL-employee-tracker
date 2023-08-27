@@ -15,7 +15,12 @@ WHEN add a role is chosen, the user is prompted to enter the name, salary, and d
 When add an employee is chosen, the user is prompted to enter the employee’s first name, last name, role, and manager, and that employee is added to the database.
 When update an employee role is chosen, the user is prompted to select an employee to update and their new role and this information is updated in the database.
 
-## Deployed URL
+## Video Walkthrough
+
+
+
+Uploading EmployeeTrackerVideo.mov…
+
 
 
 ## Screenshots
